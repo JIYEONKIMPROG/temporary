@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded File Display</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+        #file_contents {
+            overflow-y: scroll;
+            height: 60vh; 
+            display: block; /* 또는 display: inline-block; */
+            width: 30%; /* 필요한 경우, 가로 너비 조절 */
+            height:
+            border: 1px solid yellow; /* 보기 편하게 경계선 추가 */
+            padding: 10px; /* 여백 추가 (선택 사항) */
+            background-color:#F7E600
+        }
+        .inner-div{
+            width: 30%; 
+            border: 1px solid #000; 
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Uploaded File Contents:</h1>
+    <div style="display: flex; justify-content: space-between;">
+    <div id="file_contents" class="inner-div">
+        <h1>Kakao Talk</h1>
+        {% for item in file_contents %}
+            {% if loop.index <= 30 %}  {# 이 예제에서는 인덱스가 3까지만 반복합니다. #}
+                <p>{{ item }}</p>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+    <div class="inner-div">
+        <h1>Summary</h1>
+        {% for item in summary_result %}
+                <p>{{item  }}</p>
+        {% endfor %}
+            
+    </div>
+    <div class="inner-div">
+        <h1>Letter</h1>
+        {{letter_result}}
+    </div>
+</div>
+</body>
+</html>
